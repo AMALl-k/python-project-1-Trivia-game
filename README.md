@@ -1,5 +1,44 @@
 # python-project-1-Trivia-game
 # 🧠 Python Trivia Game
+import random  
+
+questions = {
+    "What is the keyword to define a function in python?": "def",
+    "Which data type is used to store True or False Values?": "boolean",
+    "What is the corrrect file extension for python values?": ".py",
+    "Which symbol is used to comment i python?": "#",
+    "What function is used to get input from the user?": "input",
+    "How do you start a for loop in python?": "for",
+    "What is the output of 2 ** 3 in python?": "8",
+    "What keyword is used to import a module in python?": "import",
+    "What does the len() function return?": "length",
+    "What is the result of 10 // 3in python?": "3"
+}
+
+def python_trivia_game():
+    questions_list = list(questions.keys())
+    total_questions = 5
+    score = 0
+
+    selected_questions = random.sample(questions_list, total_questions)
+
+    for idx, question in enumerate(selected_questions):
+        print(f"{idx + 1}. {question}")
+        user_answer = input("Your answer: ").lower().strip()
+        correct_answer = questions[question]
+         
+
+        if user_answer == correct_answer.lower():
+            print("Correct!\n")
+            score += 1
+        else:
+            print(f"Wrong. The correct answer is: {correct_answer}.\n")
+
+    print(f"Game over! Your final Score is: {score}/{total_questions}")
+
+python_trivia_game()
+
+
 
 A fun and interactive **command-line Python Trivia Game** that tests your knowledge of Python fundamentals.  
 The program randomly selects 5 questions from a predefined set, checks your answers, and displays your final score.
